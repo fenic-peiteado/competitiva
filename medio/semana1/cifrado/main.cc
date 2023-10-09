@@ -3,6 +3,9 @@
 
 std::string faseuno(std::string aux){
     std::string result = aux;
+    for(int i = 0; i<aux.size();i++){
+        result[i] ='*';
+    }
     int j = aux.size()-1;
     int x = 0;
     for(int i = 0; i < aux.size();i++){
@@ -16,7 +19,6 @@ std::string faseuno(std::string aux){
             break;
         }
     }
-    std::cout << result << "\n";
     return result;
 }
 
