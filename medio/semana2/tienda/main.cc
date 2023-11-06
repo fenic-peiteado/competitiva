@@ -9,13 +9,26 @@ typedef std::map<int, int> libro;
 void funcion(int consulta, cola armario, libro libro_consulta) {
   char letra;
   int valor;
+    int aux;
   for (int i = 0; i < consulta; i++) {
     scanf("%s", &letra);
     // Consulta p
-    int pepe;
     switch (letra) {
       case 'P':
-        // Encontrar el más cercacno;
+        // Encontrar el más cercacno en principio y final
+        auto it_ini = armario.begin();
+        auto it_fin = armario.end();
+        int next = 0;
+        while()
+        auto ini = armario.front();
+        auto fin = armario.back();
+        if(libro_consulta[ini] == 1 && libro_consulta[fin] == 1){
+          printf("CUALQUIERA\n");
+        }else if(libro_consulta[ini] == 1){
+          printf("IZQUIERDA\n")
+        }else if (libro_consulta[fin] == 1){
+          printf("DERECHA\n");
+        }
         break;
       case 'D':
         scanf("%d", &valor);
@@ -29,20 +42,16 @@ void funcion(int consulta, cola armario, libro libro_consulta) {
         break;
       case 'i':
         // erase
-        pepe = libro_consulta[armario.front()];
+        aux = libro_consulta[armario.front()];
         valor = armario.front();
-        libro_consulta[armario.front()] = pepe - 1;
+        libro_consulta[armario.front()] = aux - 1;
         armario.pop_front();
-        std::cout << "SE ACTUALIZO " << libro_consulta[valor] << " - "
-                  << pepe << "\n";
         break;
       case 'd':
-        pepe = libro_consulta[armario.back()];
+        aux = libro_consulta[armario.back()];
         valor = armario.back();
-        libro_consulta[armario.back()] = pepe - 1;
+        libro_consulta[armario.back()] = aux - 1;
         armario.pop_back();
-        std::cout << "SE ACTUALIZO " << libro_consulta[valor] << " - "
-                  << pepe << "\n";
         break;
 
       default:
@@ -50,10 +59,6 @@ void funcion(int consulta, cola armario, libro libro_consulta) {
         return;
     }
   }
-  for (auto i : libro_consulta) {
-    std::cout << i.first << " " << i.second << " - ";
-  }
-  std::cout << "\n";
 }
 
 int main() {
